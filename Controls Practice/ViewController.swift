@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     var number = 128 {
         didSet {
-         number = (number + 256) % 256
+            number = (number + 256) % 256
             updateUi()
         }
     }
@@ -70,7 +70,9 @@ class ViewController: UIViewController {
     }
     @IBAction func textFieldEdited() {
         number = Int(textField.text ?? "") ?? 128
+        
     }
+    
     @IBAction func screenTapped(_ sender: UITapGestureRecognizer) {
         let location = sender.location(in: view)
         if location.x < view.bounds.midX{
@@ -78,6 +80,7 @@ class ViewController: UIViewController {
         }else{
             number += 1
         }
+        textField.resignFirstResponder()
     }
     
 }
